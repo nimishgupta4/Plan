@@ -65,7 +65,20 @@ nav{scroll-behavior:smooth;overscroll-behavior-x:contain;scroll-snap-type:x prox
 .item .t{transition:color .25s}
 .pg>*{will-change:transform,opacity}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(() => {
+                console.log("Service Worker registered successfully");
+            })
+            .catch((error) => {
+                console.error("Service Worker registration failed:", error);
+            });
+    });
+}
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+</script>
 </head>
 <body>
 <nav id="nav" aria-label="Main"></nav>
