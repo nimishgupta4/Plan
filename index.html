@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BOARDCRAFT · Class X</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0e7c86">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="./icon-192.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&display=swap">
 <style>
 :root{--bg:#eef1f5;--card:#fff;--tx:#101a2e;--mu:#5d6a80;--ac:#0e7c86;--ac2:#e8f4f5;--bd:#dde3ec;--ok:#15803d;--wn:#b45309;--r:14px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -65,20 +71,7 @@ nav{scroll-behavior:smooth;overscroll-behavior-x:contain;scroll-snap-type:x prox
 .item .t{transition:color .25s}
 .pg>*{will-change:transform,opacity}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js")
-            .then(() => {
-                console.log("Service Worker registered successfully");
-            })
-            .catch((error) => {
-                console.error("Service Worker registration failed:", error);
-            });
-    });
-}
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-</script>
+</style>
 </head>
 <body>
 <nav id="nav" aria-label="Main"></nav>
@@ -395,6 +388,14 @@ function cReset(){S.web.code=starter();cTab(ck);runCode()}
 function runCode(){const c=S.web.code||starter();$('#er').textContent='';$('#fr').srcdoc='<style>'+c.c+'</style>'+c.h+'<script>onerror=function(m){parent.postMessage({bcErr:String(m)},"*")};'+c.j+'<\/script>'}
 addEventListener('message',e=>{if(!e.data||!e.data.bcErr||!$('#er'))return;const m=e.data.bcErr;
 $('#er').textContent=/not defined/.test(m)?'JavaScript cannot find this name. Check that you spelled it correctly and created it first.':/Unexpected|Invalid or unexpected/.test(m)?'Syntax error: a bracket, quote or comma is probably missing or extra near your last edit.':/null|undefined/.test(m)?'Your code is using something that does not exist. Check the id or class in your HTML matches your JavaScript.':'Something went wrong in your JavaScript: '+m});
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(() => console.log('BOARDCRAFT service worker registered'))
+      .catch(err => console.error('BOARDCRAFT service worker registration failed:', err));
+  });
+}
 
 applyTheme();render();
 </script>

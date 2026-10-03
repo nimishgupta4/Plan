@@ -1,20 +1,25 @@
 {
-  "name": "plan",
-  "short_name": "God",
+  "name": "BOARDCRAFT · Class X",
+  "short_name": "BOARDCRAFT",
+  "description": "Class X study planner, revision, PYQ, tests and web development dashboard.",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "background_color": "#eef1f5",
+  "theme_color": "#0e7c86",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
